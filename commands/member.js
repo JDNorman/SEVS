@@ -4,7 +4,7 @@ const { DateTime } = require('luxon');
 const path = require('path');
 const configPath = path.resolve(__dirname, '..', 'config.json');
 const { color } = require(configPath);
-const decimalColor = parseInt(color, 16);
+const hexColor = parseInt(color, 16);
 
 module.exports = {
     //Command Builder
@@ -26,7 +26,7 @@ module.exports = {
         const member = await int.client.users.fetch(Target?.id);
         
         const Embed = {
-          color: decimalColor,
+          color: hexColor,
           thumbnail: 
           {
                 url: Target.displayAvatarURL(),
