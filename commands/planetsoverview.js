@@ -11,8 +11,8 @@ module.exports = {
     //Command Builder
     data: (planetsOverviewSLASH = new SlashCommandBuilder()
     .setDMPermission(true)
-    .setName('galaxy')
-    .setDescription('Sends total overview of galaxy health and major orders.')),
+    .setName('planets')
+    .setDescription('Sends statistics for active planets and major orders.')),
 
     async execute(int) {
         console.log(`Someone used a galaxy overview command!`);
@@ -38,7 +38,15 @@ module.exports = {
             int.editReply('An error occured while fetching data from the api!');
         });
 
-        console.log(planetdata.data)
+        const planetStatus = hdapi.data.planetStatus;
+        console.log(totplanets);
+
+        let activePlanets = planetStatus.filter(item => item.players > 0);
+
+        console.log(activePlanets);
+
+
+
         int.editReply('Planet data sent to console!');
 
 
