@@ -38,16 +38,16 @@ module.exports = {
             int.editReply('An error occured while fetching data from the api!');
         });
 
-        const planetStatus = hdapi.data.planetStatus;
-        console.log(totplanets);
+        const planetStatuses = [hdapi.data];
+        console.log(planetStatuses);
 
-        let activePlanets = planetStatus.filter(item => item.players > 0);
+        let activePlanets = planetStatuses.filter(item => item.planetStatus.players > 0);
 
         console.log(activePlanets);
 
 
 
-        int.editReply('Planet data sent to console!');
+        int.followUp('Planet data sent to console!');
 
 
 
